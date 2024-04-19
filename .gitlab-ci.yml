@@ -13,11 +13,6 @@ build:
   id_tokens:
     VAULT_ID_TOKEN:
       aud: https://gitlab.com
-  secrets:
-    DATABASE_PASSWORD:
-      vault: production/db/password@ops  # translates to secret `ops/data/production/db`, field `password`
-      file: false
-      token: $VAULT_ID_TOKEN
   script:
     - export VAULT_ADDR=$VAULT_SERVER_URL
     - echo "$VAULT_ID_TOKEN" | base64
